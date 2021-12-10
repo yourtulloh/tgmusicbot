@@ -155,10 +155,8 @@ async def _fetch_and_send_music(message: Message):
 
 
 def _youtube_video_not_music(info_dict):
-    if info_dict['extractor'] == 'youtube' \
-            and 'Music' not in info_dict['categories']:
-        return True
-    return False
+    return info_dict['extractor'] == 'youtube' \
+            and 'Music' not in info_dict['categories']
 
 
 async def _reply_and_delete_later(message: Message, text: str, delay: int):
